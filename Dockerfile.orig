@@ -1,0 +1,14 @@
+FROM nginx:1.19.5
+
+LABEL description="version nginx avec vim"
+LABEL version="3.0.0"
+LABEL maintainer="smainil"
+
+ENV MYSQL_USER="root"
+
+RUN apt-get update \
+ && apt-get install -y vim
+
+WORKDIR /usr/share/nginx/html
+RUN mkdir myWs \
+ && echo "test" >> myWs/index.html
